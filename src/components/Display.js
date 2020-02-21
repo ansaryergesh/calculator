@@ -7,20 +7,18 @@ class Display extends Component {
     static defaultProps = {
       result: '0',
     };
-
-      render() {
-        return(
-          <div>
-            <input style ={{textAlign: 'right'}} type="text" value={this.props.result} disabled></input>
-          </div>
-        );
-      }
-
     
+    render() {
+      return(
+        <div>
+          <input style ={{textAlign: 'right'}} type="text" value={this.props.result} disabled></input>
+        </div>
+      );
+    }
 }
 
 Display.propTypes = {
-    result: PropTypes.string,
+  result: PropTypes.string,
 };
 
 export default Display;
