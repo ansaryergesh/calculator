@@ -10,8 +10,8 @@ class Display extends Component {
     
     render() {
       return(
-        <div>
-          <input style ={{textAlign: 'right'}} type="text" value={this.props.result} disabled></input>
+        <div className = "Display">
+          <p className="resultPanel">{this.props.result}</p>
         </div>
       );
     }
