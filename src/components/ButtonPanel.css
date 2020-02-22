@@ -1,9 +1,6 @@
-.ButtonPanel {
-    display: flex;
-    flex-direction: column;
-}
-
-.Button-group {
-    display: flex;
-    min-height: 100px;
-}
+    .Button-group {
+        display: flex;
+        min-height: 100px;
+        border: none;
+        cursor: pointer;
+    }
