@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './Display.css';
 
 class Display extends Component {
-    static defaultProps = {
-      result: '0',
-    };
+  static defaultProps = {
+    result: '0',
+  };
     
     render() {
       return(

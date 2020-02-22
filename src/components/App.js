@@ -10,7 +10,7 @@ class App extends Component {
         <Display />
         <ButtonPanel />
       </div>
-    )
+    );
   }
 }
 
