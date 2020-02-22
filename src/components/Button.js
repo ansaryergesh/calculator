@@ -5,6 +5,8 @@ const Button = ({ name, color, wide }) => {
   const style = {
     wide: wide? '50%' : '25%',
     backgroundColor: color,
+    padding: "25px",
+    cursor: "pointer"
   }
   return (
     <button type="button" style={style}>
@@ -21,7 +23,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   wide: false,
-  color: 'gray',
+  color: '#37C4D4',
 }
   
 export default Button;
