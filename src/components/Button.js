@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Button = ({ name, color, wide }) => {
   const style = {
-    wide: wide? '50%' : '25%',
+    width: wide? '50%' : '25%',
     backgroundColor: color,
     padding: "25px",
     cursor: "pointer"
@@ -22,6 +22,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  name: '0',
   wide: false,
   color: '#37C4D4',
 }
