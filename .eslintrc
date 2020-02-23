@@ -1,4 +1,5 @@
 {
-    "extends": ["wesbos"],
-    "parser": "babel-eslint"
+  "extends": ["wesbos"],
+  "parser": "babel-eslint",
+  "plugins": ["babel"]
 }
