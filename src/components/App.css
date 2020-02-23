@@ -1,6 +1,11 @@
 .App {
-    width: 50%;
+    width: 700px;
     margin: auto;
+}
+
+.buttonClick {
+    border: .1px solid rgba(90, 90, 90, 0.288);
+    padding: '25px';
 }
 
 /* media-queries */
