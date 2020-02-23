@@ -9,9 +9,9 @@ const Button = (props) => {
     </button>
   );
 };
-  
+
 Button.propTypes = {
   name: PropTypes.string,
 };
-  
+
 export default Button;
