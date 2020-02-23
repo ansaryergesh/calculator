@@ -1,0 +1,6 @@
+    .Button-group {
+        display: flex;
+        min-height: 100px;
+        border: none;
+        cursor: pointer;
+    }

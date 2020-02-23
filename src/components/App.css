@@ -1,0 +1,22 @@
+.App {
+    width: 700px;
+    margin: auto;
+}
+
+.buttonClick {
+    border: .1px solid rgba(90, 90, 90, 0.288);
+    padding: '25px';
+}
+
+/* media-queries */
+@media only screen and (max-width: 768px) {
+    .App {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width:767px) and (max-width: 1020px) {
+    .App {
+        width: 70%;
+    }
+}
