@@ -1,7 +1,6 @@
 import operate from './operate';
 
 const calculate = (object, buttonName) => {
-  const operationSymbols = ['+', '-', '%', '÷', 'X'];
   switch (buttonName) {
     case 'AC':
       return {
@@ -13,7 +12,7 @@ const calculate = (object, buttonName) => {
   case '+/-':
       if(object.next){
       return{
-        next: next * -1;
+        next: next *= -1,
       }
     }
   case '+':
