@@ -1,4 +1,5 @@
-import Big from 'big';
+/* eslint-disable import/extensions */
+import Big from 'big.js';
 
 const operate = (num1, num2, operation) => {
   const n1 = Big(num1);
