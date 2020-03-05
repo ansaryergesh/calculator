@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 import Display from './Display';
