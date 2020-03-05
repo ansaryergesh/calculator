@@ -28,4 +28,34 @@ const calculate = (object, buttonName) => {
       total: null,
     };
   }
+
+  if (buttonName === '=') {
+    if (next && operation) {
+      return {
+        total: operate(next, total, operation),
+        next: null,
+        operation: null,
+      };
+    }
+    return {};
+  }
+
+  if (buttonName === '.') {
+    if (next) {
+      if (next.includes('.')) {
+        return {};
+      }
+      return { next: `${next}.` };
+    }
+    return { next: '0.' };
+  }
+
+  if (buttonName === '+/-') {
+    if (next) {
+      return { next: -1 * next };
+    }
+    if (total) {
+      return { total: -1 * total };
+    }
+  }
 };
