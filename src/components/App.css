@@ -1,12 +1,18 @@
 .App {
     width: 700px;
     margin: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
 
 .buttonClick {
-    border: .1px solid rgba(90, 90, 90, 0.288);
+    border: .1px solid rgba(73, 228, 26, 0.288);
     padding: '25px';
+    margin: 15px;
 }
+
 
 /* media-queries */
 @media only screen and (max-width: 768px) {

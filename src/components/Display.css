@@ -1,10 +1,12 @@
 .Display {
     height: 100px;
-    background-color: gray;
-    color: white;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgb(8, 102, 74) 0%, rgba(17, 107, 12, 1) 14%, rgba(27, 121, 9, 1) 35%, rgb(52, 124, 58) 100%);
+    color: rgb(3, 3, 3);
     font-weight: bold;
     text-align: right;
     font-size: 55px;
     line-height: 120px;
     padding: 0 15px;
+    margin: 15px;
 }

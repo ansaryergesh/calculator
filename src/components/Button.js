@@ -8,9 +8,10 @@ const Button = ({
     clickHandler(name);
   };
   const style = {
-    width: wide ? '50%' : '25%',
+    width: wide ? '56%' : '25%',
     backgroundColor: color,
     cursor: 'pointer',
+    fontSize: '22px',
   };
 
   return (
@@ -21,15 +22,17 @@ const Button = ({
 };
 
 Button.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   wide: PropTypes.bool,
   color: PropTypes.string,
-  clickHandler: PropTypes.func.isRequired,
+  clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {
+  name: '',
   wide: false,
   color: 'orange',
+  clickHandler: null,
 };
 
 export default Button;

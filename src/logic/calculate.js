@@ -9,28 +9,35 @@ const calculate = (object, buttonName) => {
         next: null,
         operation: null,
       };
-
     case '+/-':
       if (next) {
         return {
-          next: next *= -1,
+          next: (-1 * parseFloat(next)).toString(),
         };
+        if (total) {
+          return { total: (-1 * parseFloat(total)).toString() };
+        }
       }
     case '+':
     case '-':
     case 'x':
     case '÷':
+    case '%':
       return {
         total: operate(total, next, operation),
-        next: '',
-        opeation: buttonName,
+        next: null,
+        operation: buttonName,
       };
     case '=':
-      return {
-        total: operate(total, next, operation),
-        next: '',
-        operation: '',
-      };
+      if (!next || !operation) {
+        return null;
+      } {
+        return {
+          total: operate(total, next, operation),
+          next: null,
+          operation: null,
+        };
+      }
     case '.':
       if (next) {
         return { total, next: `${next}.`, operation };
@@ -41,7 +48,12 @@ const calculate = (object, buttonName) => {
       return { total: '0.', next, operation };
 
     default:
-      return { total, next, operation };
+      if (operation) {
+        return {
+          total, next: next ? next + buttonName : buttonName, operation,
+        };
+      }
+      return { total: total ? total + buttonName : buttonName, next, operation };
   }
 };
 
