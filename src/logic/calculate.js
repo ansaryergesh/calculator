@@ -19,7 +19,11 @@ const calculate = (object, buttonName) => {
 
       if (object.operation) {
         if (object.next) {
-          return { total: object.total, next: object.next + buttonName, operation: object.operation };
+          return {
+            total: object.total,
+            next: object.next + buttonName,
+            operation: object.operation,
+          };
         }
         return { next: buttonName, total: object.total };
       }

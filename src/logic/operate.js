@@ -13,7 +13,7 @@ const operate = (num1, num2, operation) => {
       return n1.times(n2).toString();
     case '÷':
       if (n2 === 0) {
-        return '0';
+        return 'Error';
       }
       return n1.div(n2).toString();
     case '%':
