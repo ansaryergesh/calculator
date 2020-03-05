@@ -10,4 +10,22 @@ const calculate = (object, buttonName) => {
       operation: null,
     };
   }
+
+  if (numbers.includes(buttonName)) {
+    if (next) {
+      return { next: next + buttonName };
+    }
+
+    if (!next) {
+      return { next: buttonName };
+    }
+
+    if (buttonName === '0' && next === '0') {
+      return {};
+    }
+    return {
+      next: buttonName,
+      total: null,
+    };
+  }
 };
