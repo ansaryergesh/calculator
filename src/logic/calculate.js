@@ -15,14 +15,15 @@ const calculate = (object, buttonName) => {
     if (buttonName === '0' && next === '0') {
       return {};
     }
-    if (next) {
-      return { next: next + buttonName };
+    if (operation) {
+      if (next) {
+        return { next: next + buttonName };
+      }
+      if (next === null) {
+        return { next: buttonName };
+      }
     }
-    if (next === null) {
-      return { next: buttonName };
-    }
-
-    return { next: buttonName };
+    return { next: next ? next + buttonName : buttonName };
   }
   if (buttonName === '=') {
     if (next && operation) {
@@ -30,20 +31,6 @@ const calculate = (object, buttonName) => {
         total: operate(total, next, operation),
         next: null,
         operation: null,
-      };
-    }
-    return {};
-  }
-
-  if (buttonName === '%') {
-    if (next && operation) {
-      const result = operate(total, next, operation);
-      return { total: result.div(100).toString(), next: null, operation: null };
-    }
-
-    if (next) {
-      return {
-        next: next.div(100).toString(),
       };
     }
     return {};
@@ -84,11 +71,6 @@ const calculate = (object, buttonName) => {
       operation: buttonName,
     };
   }
-
-  if (!operation) {
-    return { operation: buttonName };
-  }
-
 
   return {
     total: next,
