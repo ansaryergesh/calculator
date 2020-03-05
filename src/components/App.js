@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/prefer-stateless-function */
 
 import React, { Component } from 'react';
 import Display from './Display';
@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   handleClick = (buttonName) => {
+    // eslint-disable-next-line react/no-access-state-in-setstate
     this.setState(calculate(this.state, buttonName));
   }
 
@@ -25,7 +26,7 @@ class App extends Component {
     const { total, next } = this.state;
     return (
       <div className="App">
-        <Display result = { total || next || '0'} />
+        <Display result={total || next || '0'} />
         <ButtonPanel clickHandler={this.handleClick} />
       </div>
     );
