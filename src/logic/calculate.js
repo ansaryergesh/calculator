@@ -1,8 +1,10 @@
+import Big from 'big.js';
+
 import operate from './operate';
 
+const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
 const calculate = (object, buttonName) => {
-  const { total, next, operation } = object;
-  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   try {
     if (buttonName === 'AC') {
       return {
@@ -13,65 +15,80 @@ const calculate = (object, buttonName) => {
     }
 
     if (numbers.includes(buttonName)) {
-      if (buttonName === '0' && next === '0') {
+      if (buttonName === '0' && object.next === '0') {
         return {};
       }
-      return { next: next ? next + buttonName : buttonName };
+
+      if (object.operation) {
+        if (object.next) {
+          return { next: object.next + buttonName };
+        }
+        return { next: buttonName };
+      }
+      if (object.next) {
+        const next = object.next === '0' ? buttonName : object.next + buttonName;
+        return {
+          next,
+          total: null,
+        };
+      }
+      return {
+        next: buttonName,
+        total: null,
+      };
+    }
+
+
+    if (buttonName === '.') {
+      if (object.next) {
+        if (object.next.includes('.')) {
+          return {};
+        }
+        return { next: `${object.next}.` };
+      }
+      return { next: '0.' };
     }
 
     if (buttonName === '=') {
-      if (next && operation) {
+      if (object.next && object.operation) {
         return {
-          total: operate(total, next, operation),
+          total: operate(object.total, object.next, object.operation),
           next: null,
           operation: null,
         };
       }
       return {};
     }
-
-    if (buttonName === '.') {
-      if (next) {
-        if (next.includes('.')) {
-          return {};
-        }
-        return { next: `${next}.` };
-      }
-      return { next: '0.' };
-    }
-
     if (buttonName === '+/-') {
-      if (next) {
-        return { next: -1 * next.toString() };
+      if (object.next) {
+        return { next: -1 * object.next.toString() };
       }
-      if (total) {
-        return { total: -1 * total.toString() };
+      if (object.total) {
+        return { total: -1 * object.total.toString() };
       }
     }
-    if (!next && !total) {
+    if (!object.next && !object.total) {
       return {};
     }
 
-
-    if (operation) {
-      if (!next) {
-        return {
-          operation: buttonName,
-        };
-      }
+    if (object.operation) {
       return {
-        total: operate(total, next, operation),
+        total: operate(object.total, object.next, object.operation),
         next: null,
         operation: buttonName,
       };
     }
 
+    if (!object.next) {
+      return { operation: buttonName };
+    }
+
     return {
-      total: next,
+      total: object.next,
       next: null,
       operation: buttonName,
     };
-  } catch (e) {
+  } catch {
     return {
       total: 'Error',
     };
