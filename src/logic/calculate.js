@@ -21,6 +21,8 @@ const calculate = (object, buttonName) => {
     if (next === null) {
       return { next: buttonName };
     }
+
+    return { next: buttonName };
   }
   if (buttonName === '=') {
     if (next && operation) {
@@ -65,6 +67,9 @@ const calculate = (object, buttonName) => {
       return { total: -1 * total };
     }
   }
+  if (!next && !total) {
+    return {};
+  }
 
 
   if (operation) {
@@ -78,6 +83,10 @@ const calculate = (object, buttonName) => {
       next: null,
       operation: buttonName,
     };
+  }
+
+  if (!operation) {
+    return { operation: buttonName };
   }
 
 
