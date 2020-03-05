@@ -33,6 +33,20 @@ const calculate = (object, buttonName) => {
     return {};
   }
 
+  if (buttonName === '%') {
+    if (next && operation) {
+      const result = operate(total, next, operation);
+      return { total: result.div(100).toString(), next: null, operation: null };
+    }
+
+    if (next) {
+      return {
+        next: next.div(100).toString(),
+      };
+    }
+    return {};
+  }
+
   if (buttonName === '.') {
     if (next) {
       if (next.includes('.')) {

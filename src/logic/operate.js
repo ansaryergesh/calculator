@@ -12,13 +12,11 @@ const operate = (num1, num2, operation) => {
       return n1.times(n2).toString();
     case '÷':
       if (n2 === 0) {
-        return null;
+        return '0';
       }
       return n1.div(n2).toString();
-    case '%':
-      return n1.mod(n2).toString();
     default:
-      return null;
+      break;
   }
 };
 
