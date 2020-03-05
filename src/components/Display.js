@@ -1,20 +1,27 @@
 /* eslint-disable react/prefer-stateless-function */
 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './Display.css';
 
-export default class Display extends React.Component {
-  static propTypes = {
-    result: PropTypes.string,
-  };
-
+class Display extends Component {
   render() {
+    const { result } = this.props;
     return (
       <div className="Display">
-        <div className="resultPanel">{this.props.result}</div>
+        {result}
       </div>
     );
   }
 }
+
+Display.defaultProps = {
+  result: '0',
+};
+
+Display.propTypes = {
+  result: PropTypes.string,
+};
+
+export default Display;

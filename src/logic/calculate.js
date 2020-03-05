@@ -1,5 +1,3 @@
-import Big from 'big.js';
-
 import operate from './operate';
 
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -21,20 +19,23 @@ const calculate = (object, buttonName) => {
 
       if (object.operation) {
         if (object.next) {
-          return { next: object.next + buttonName };
+          return { total: object.total, next: object.next + buttonName, operation: object.operation };
         }
-        return { next: buttonName };
+        return { next: buttonName, total: object.total };
       }
       if (object.next) {
         const next = object.next === '0' ? buttonName : object.next + buttonName;
         return {
           next,
           total: null,
+          operation: object.operation,
         };
       }
+
       return {
         next: buttonName,
         total: null,
+        operation: object.operation,
       };
     }
 
@@ -55,6 +56,7 @@ const calculate = (object, buttonName) => {
           total: operate(object.total, object.next, object.operation),
           next: null,
           operation: null,
+
         };
       }
       return {};
