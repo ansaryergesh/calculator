@@ -2,8 +2,8 @@
 import Big from 'big.js';
 
 const operate = (num1, num2, operation) => {
-  const n1 = Big(num1 || '0');
-  const n2 = Big(num2 || (operation === '÷' || operation === 'x' ? '1' : '0')); // If dividing or multiplying, then 1 maintains current value in cases of null
+  const n1 = new Big(num1);
+  const n2 = new Big(num2);
   switch (operation) {
     case '+':
       return n1.plus(n2).toString();
@@ -13,7 +13,7 @@ const operate = (num1, num2, operation) => {
       return n1.times(n2).toString();
     case '÷':
       if (n2 === 0) {
-        return 'Error';
+        return '0';
       }
       return n1.div(n2).toString();
     case '%':
@@ -21,8 +21,7 @@ const operate = (num1, num2, operation) => {
     default:
       break;
   }
-
-  throw Error('Error');
+  return null;
 };
 
 export default operate;

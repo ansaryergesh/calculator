@@ -43,17 +43,6 @@ const calculate = (object, buttonName) => {
       };
     }
 
-
-    if (buttonName === '.') {
-      if (object.next) {
-        if (object.next.includes('.')) {
-          return {};
-        }
-        return { next: `${object.next}.` };
-      }
-      return { next: '0.' };
-    }
-
     if (buttonName === '=') {
       if (object.next && object.operation) {
         return {
@@ -65,6 +54,17 @@ const calculate = (object, buttonName) => {
       }
       return {};
     }
+
+    if (buttonName === '.') {
+      if (object.next) {
+        if (object.next.includes('.')) {
+          return {};
+        }
+        return { next: `${object.next}.` };
+      }
+      return { next: '0.' };
+    }
+
     if (buttonName === '+/-') {
       if (object.next) {
         return { next: -1 * object.next.toString() };
@@ -73,6 +73,7 @@ const calculate = (object, buttonName) => {
         return { total: -1 * object.total.toString() };
       }
     }
+
     if (!object.next && !object.total) {
       return {};
     }
@@ -94,7 +95,7 @@ const calculate = (object, buttonName) => {
       next: null,
       operation: buttonName,
     };
-  } catch {
+  } catch (e) {
     return {
       total: 'Error',
     };
