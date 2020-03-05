@@ -23,10 +23,6 @@ const calculate = (object, buttonName) => {
     if (buttonName === '0' && next === '0') {
       return {};
     }
-    return {
-      next: buttonName,
-      total: null,
-    };
   }
 
   if (buttonName === '=') {
