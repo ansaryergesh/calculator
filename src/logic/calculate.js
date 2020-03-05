@@ -25,7 +25,7 @@ const calculate = (object, buttonName) => {
   if (buttonName === '=') {
     if (next && operation) {
       return {
-        total: operate(next, total, operation),
+        total: operate(total, next, operation),
         next: null,
         operation: null,
       };
@@ -54,6 +54,11 @@ const calculate = (object, buttonName) => {
 
 
   if (operation) {
+    if (!next) {
+      return {
+        operation: buttonName,
+      };
+    }
     return {
       total: operate(total, next, operation),
       next: null,
