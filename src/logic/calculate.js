@@ -73,7 +73,7 @@ const calculate = (object, buttonName) => {
     };
   } catch (e) {
     return {
-      total: 'E',
+      total: 'Error',
     };
   }
 };
