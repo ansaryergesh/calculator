@@ -18,6 +18,7 @@ const operate = (num1, num2, operation) => {
     default:
       return '0';
   }
+  return null;
 };
 
 

@@ -66,6 +66,8 @@ const calculate = (object, buttonName) => {
       operation: buttonName,
     };
   }
+
+  return null;
 };
 
 export default calculate;
