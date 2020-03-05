@@ -58,4 +58,12 @@ const calculate = (object, buttonName) => {
       return { total: -1 * total };
     }
   }
+
+  if (operation) {
+    return {
+      total: operate(total, next, operation),
+      next: null,
+      operation: buttonName,
+    };
+  }
 };
