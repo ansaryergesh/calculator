@@ -12,23 +12,16 @@ const calculate = (object, buttonName) => {
   }
 
   if (numbers.includes(buttonName)) {
-    if (next) {
-      return { next: next + buttonName };
-    }
-
-    if (!next) {
-      return { next: buttonName };
-    }
-
     if (buttonName === '0' && next === '0') {
       return {};
     }
-    return {
-      next: buttonName,
-      total: null,
-    };
+    if (next) {
+      return { next: next + buttonName };
+    }
+    if (next === null) {
+      return { next: buttonName };
+    }
   }
-
   if (buttonName === '=') {
     if (next && operation) {
       return {
@@ -68,9 +61,6 @@ const calculate = (object, buttonName) => {
     };
   }
 
-  if (!next) {
-    return { operation: buttonName };
-  }
 
   return {
     total: next,
