@@ -67,3 +67,5 @@ const calculate = (object, buttonName) => {
     };
   }
 };
+
+export default calculate;
