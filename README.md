@@ -1,6 +1,7 @@
 # Calculator
 
 Calculator
+![screenshot](./img.jpg)
 
 ### Installing and Running program
 
@@ -17,8 +18,8 @@ npm start
 
 ## Built With
 
-* React
-* Javascript ES6+
+- React
+- Javascript ES6+
 
 ## Author:
 
@@ -27,7 +28,6 @@ npm start
 - Github: [@ansaryergesh](https://github.com/ansaryergesh)
 - Twitter: [@ansaryergesh](https://twitter.com/ansaryergesh)
 - Linkedin: [Ansar Yergeshov](https://www.linkedin.com/in/ansaryergesh/)
-
 
 ## 🤝 Contributing
 
