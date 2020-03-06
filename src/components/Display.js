@@ -10,7 +10,7 @@ class Display extends Component {
     const { result } = this.props;
     return (
       <div className="Display">
-        <p className="resultPanel">{result}</p>
+        {result}
       </div>
     );
   }
